@@ -19,7 +19,9 @@ namespace ServiceInstaller.Classes
         /// </remarks>
         public void StopService(string pServiceName)
         {
-            var sc = ServiceController.GetServices().FirstOrDefault(service => service.ServiceName == pServiceName);
+            var sc = ServiceController.GetServices()
+                .FirstOrDefault(service => service.ServiceName == pServiceName);
+
             if (sc == null)
                 return;
 
@@ -42,7 +44,9 @@ namespace ServiceInstaller.Classes
         /// <param name="pServiceName"></param>
         public void StartService(string pServiceName)
         {
-            var sc = ServiceController.GetServices().FirstOrDefault(service => service.ServiceName == pServiceName);
+            var sc = ServiceController.GetServices()
+                .FirstOrDefault(service => service.ServiceName == pServiceName);
+
             if (sc == null)
                 return;
 
@@ -67,7 +71,9 @@ namespace ServiceInstaller.Classes
         /// <returns></returns>
         public bool IsInstalled(string pServiceName)
         {
-            var sc = ServiceController.GetServices().FirstOrDefault(service => service.ServiceName == pServiceName);
+            var sc = ServiceController.GetServices()
+                .FirstOrDefault(service => service.ServiceName == pServiceName);
+
             return (sc != null);
         }
         /// <summary>
@@ -77,10 +83,18 @@ namespace ServiceInstaller.Classes
         public List<ServiceDetails> ServiceNames()
         {
             var detailList = new List<ServiceDetails>();
-            var services = ServiceController.GetServices().OrderBy(x => x.DisplayName).ToList();
+
+            var services = ServiceController.GetServices()
+                .OrderBy(x => x.DisplayName).ToList();
+
             foreach (var item in services)
             {
-                detailList.Add(new ServiceDetails() { DisplayName = item.DisplayName, ServiceName = item.ServiceName, Status = item.Status });               
+                detailList.Add(new ServiceDetails()
+                {
+                    DisplayName = item.DisplayName,
+                    ServiceName = item.ServiceName,
+                    Status = item.Status
+                });               
             }
 
             return detailList;
@@ -100,7 +114,9 @@ namespace ServiceInstaller.Classes
             var status = "Not installed";
 
             // Get our service, if not found in GetServices then it's not installed
-            var sc = ServiceController.GetServices().FirstOrDefault(service => service.ServiceName == pServiceName);
+            var sc = ServiceController.GetServices()
+                .FirstOrDefault(service => service.ServiceName == pServiceName);
+
             if (sc == null)
                 return status;
 

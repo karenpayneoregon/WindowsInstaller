@@ -80,10 +80,6 @@ namespace ServiceInstaller.Classes
                     MessageBox.Show("Service has been uninstalled");
                 }
             }
-            else
-            {
-                
-            }
         }
         /// <summary>
         /// Start our service.
