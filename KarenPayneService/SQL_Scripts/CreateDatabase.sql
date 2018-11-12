@@ -1,0 +1,117 @@
+﻿USE [master]
+GO
+CREATE DATABASE [KarensServiceDatabase]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'KarensServiceDatabase', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\KarensServiceDatabase.mdf' , SIZE = 4096KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'KarensServiceDatabase_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\KarensServiceDatabase_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [KarensServiceDatabase] SET COMPATIBILITY_LEVEL = 110
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [KarensServiceDatabase].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [KarensServiceDatabase] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET RECOVERY FULL 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET  MULTI_USER 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [KarensServiceDatabase] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [KarensServiceDatabase] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+USE [KarensServiceDatabase]
+GO
+
+CREATE USER [KarenPayneDemo] FOR LOGIN [KarenPayneDemo] WITH DEFAULT_SCHEMA=[db_accessadmin]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_accessadmin] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_securityadmin] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_ddladmin] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_backupoperator] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_datareader] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_datawriter] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_denydatareader] ADD MEMBER [KarenPayneDemo]
+GO
+ALTER ROLE [db_denydatawriter] ADD MEMBER [KarenPayneDemo]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MessagesFromService](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[MessageText] [nvarchar](max) NULL,
+	[ModifiedDateTime] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_MessagesFromService] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+USE [master]
+GO
+ALTER DATABASE [KarensServiceDatabase] SET  READ_WRITE 
+GO
