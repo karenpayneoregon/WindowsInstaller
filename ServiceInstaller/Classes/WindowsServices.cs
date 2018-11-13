@@ -107,7 +107,6 @@ namespace ServiceInstaller.Classes
         /// <remarks>
         /// Example usage, set the text of a text box
         /// in a form statusbar.
-        /// https://www.dotnetheaven.com/article/printer-settings-in-gdi-and-vb.net
         /// </remarks>
         public string Status(string pServiceName) 
         {
