@@ -5,5 +5,5 @@ Also demonstrates using a simple Windows Service starting a debug session.
 
 [Windows Service developer GUI for install while in development mode](https://social.technet.microsoft.com/wiki/contents/articles/52152.windows-service-developer-gui-for-install-while-in-development-mode.aspx)
 
-<img alt="logo" src="Assets/F1.png">
+<img alt="logo" src="assets/F1.png">
 
