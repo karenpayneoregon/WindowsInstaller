@@ -87,7 +87,6 @@ namespace KarenPayneService.Classes.OracleOperations
                             return null;
                         }
                         
-
                     }
                     catch (Exception exception)
                     {
