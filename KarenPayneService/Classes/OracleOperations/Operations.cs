@@ -36,7 +36,7 @@ namespace KarenPayneService.Classes.OracleOperations
     /// </summary>
     public class Operations
     {
-        private static string connectionString = "Data Source=aix-aixdev.emp.state.or.us:1521/DEV.EMP.STATE.OR.US;Persist Security Info=True;Enlist=false;Pooling=true;Statement Cache Size=10;User ID=ocs;Password=ocsdog;";
+        private static string connectionString = "TODO";
         /// <summary>
         /// Mockup for inserting a new record and returning the new primary key
         /// </summary>
