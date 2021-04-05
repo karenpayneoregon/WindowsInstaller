@@ -8,6 +8,9 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace KarenPayneService.Classes.OracleOperations
 {
+    /// <summary>
+    /// mocked up for calling Operations.InsertRecord
+    /// </summary>
     public class InsertRecordExample
     {
         /// <summary>
@@ -19,7 +22,10 @@ namespace KarenPayneService.Classes.OracleOperations
             
             int newIdentifier = -1;
             
-            Operations.InsertRecord(address,ref newIdentifier);
+            /*
+             * See comment in the `else` statement below
+             */
+            var exception = Operations.InsertRecord(address,ref newIdentifier);
             
             if (newIdentifier > -1)
             {
@@ -27,7 +33,8 @@ namespace KarenPayneService.Classes.OracleOperations
             }
             else
             {
-                // record failed to insert
+                // record failed to insert, inspect exception var returned from `Operations.InsertRecord`
+                
             }
         }
     }
@@ -42,7 +49,7 @@ namespace KarenPayneService.Classes.OracleOperations
         /// </summary>
         /// <param name="address"><see cref="CbrAddress"/></param>
         /// <param name="newIdentifier">On a successful insert will be the new primary key</param>
-        public static void InsertRecord(CbrAddress address, ref int newIdentifier)
+        public static Exception InsertRecord(CbrAddress address, ref int newIdentifier)
         {
             
             using (var cn = new OracleConnection(connectionString))
@@ -65,6 +72,7 @@ namespace KarenPayneService.Classes.OracleOperations
                         if (result == -1)
                         {
                             // insert failed
+                            return new Exception("Insert failed without raising a runtime exception");
                         }
                         else
                         {
@@ -74,17 +82,19 @@ namespace KarenPayneService.Classes.OracleOperations
                             {
                                 newIdentifier = pKey;
                             }
+
+                            return null;
                         }
                         
 
                     }
                     catch (Exception exception)
                     {
-                        // TODO write to log file
+                        newIdentifier = -1;
+                        return exception;
                     }
                 }
             }
-            
             
         }
 

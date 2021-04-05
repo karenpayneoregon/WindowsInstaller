@@ -8,6 +8,9 @@ using FileOps = System.IO.File;
 
 namespace KarenPayneService.Classes.IO
 {
+    /// <summary>
+    /// Example for reading a file
+    /// </summary>
     public class File
     {
         /// <summary>

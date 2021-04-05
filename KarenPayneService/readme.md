@@ -28,6 +28,10 @@ This is controlled in `app.config` file
 
 :heavy_check_mark: NuGet package System.ValueTuple {4.5.0}  KarenPayneService
 
+To see NuGet packages open the Package Manager Console and run
+
+:heavy_check_mark:  get-Package | ft -AutoSize
+
 :heavy_check_mark: .NET Framework 4.8
 
 # Permissions to run service locally

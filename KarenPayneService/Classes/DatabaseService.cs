@@ -3,15 +3,22 @@ using System.Configuration;
 using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading;
+using KarenPayneService.Classes.OracleOperations;
 
 namespace KarenPayneService.Classes
 {
+    /// <summary>
+    /// Windows service class main entry
+    /// </summary>
     public partial class DatabaseService : ServiceBase
     {
         //private string _mServiceName = "DatabaseService";  
         Timer _serviceTimer; 
         int _executeTime = 0; 
 
+        /// <summary>
+        /// Used from Program.cs to start the service
+        /// </summary>
         public DatabaseService()
         {
             InitializeComponent();
@@ -74,6 +81,51 @@ namespace KarenPayneService.Classes
         }
         void Dispatcher(object e)
         {
+            
+            //ReadFileExample();
+            //WriteRecordToSqlServerExample();
+            
+            WriteToOraclePartlyDoneExample();
+
+
+            _serviceTimer.Dispose();
+
+            ScheduleService();
+        }
+
+        private void WriteToOraclePartlyDoneExample()
+        {
+            var address = new CbrAddress() {PostalCode = "TODO"};
+
+            int newIdentifier = -1;
+
+            var exception = Operations.InsertRecord(address, ref newIdentifier);
+
+            if (newIdentifier > -1)
+            {
+                // record inserted
+            }
+            else
+            {
+                EventLog.WriteEntry($"Karen Payne Service Error inserting record: {exception.Message}", EventLogEntryType.Error);
+            }
+        }
+        /// <summary>
+        /// Write a record to SQL-Server database KarensServiceDatabase, table MessagesFromService
+        /// </summary>
+        private void WriteRecordToSqlServerExample()
+        {
+            var ops = new SqlServerOperations();
+            
+            if (!ops.InsertMessage("Written in demo service"))
+            {
+                string errorMessage = ops.ExceptionMessage;
+                EventLog.WriteEntry($"Karen Payne Service Error inserting record: {errorMessage}", EventLogEntryType.Error);
+            }
+        }
+
+        private void ReadFileExample()
+        {
             /*
              * Read an existing file
              *
@@ -83,27 +135,14 @@ namespace KarenPayneService.Classes
              * NOTE: The return type is a 'named value tuple
              */
             var (exception, linesList) = IO.File.ReadNameFile();
-            
+
             if (exception == null)
             {
-                Console.WriteLine();
             }
             else
             {
-                Console.WriteLine();
+                EventLog.WriteEntry($"Karen Payne Service Error inserting record: {exception.Message}", EventLogEntryType.Error);
             }
-            
-            //var ops = new SqlServerOperations();
-            //if (!ops.InsertMessage("Written in demo service"))
-            //{
-            //    string errorMessage = ops.ExceptionMessage;
-            //    EventLog.WriteEntry($"Karen Payne Service Error inserting record: {errorMessage}", EventLogEntryType.Error);
-            //}
-
-            _serviceTimer.Dispose();
-
-            ScheduleService();
         }
-
     }
 }
