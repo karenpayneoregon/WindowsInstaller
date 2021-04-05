@@ -1,4 +1,5 @@
-# TechNet article November 2018 
+# VS2019/OED edition 
+
 The article presents a Windows utility for interacting with a Windows service Jump during coding phase for start/stop and install/uninstalling, get status of your Windows service rather than opening Visual Studio command prompt, typing in a long command for install/uninstall.  
 
 Also demonstrates using a simple Windows Service starting a debug session.
