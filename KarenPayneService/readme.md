@@ -64,7 +64,7 @@ Mockedup/sample code is in `InsertRecordExample` class using a mocked up class `
 
 # Exception handling/logging
 
-Karen is working on finishing this up.
+See Windows Event Log
 
 
 
