@@ -83,7 +83,7 @@ namespace KarenPayneService
         //    base.OnBeforeInstall(savedState);
 
         //    string username = "OED/paynek";// GetContextParameter("user").Trim();
-        //    string password = "@Vision6666"; // GetContextParameter("password").Trim();
+        //    string password = ""; // GetContextParameter("password").Trim();
 
         //    if (username != "")
         //    {
