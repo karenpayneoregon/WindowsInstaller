@@ -10,7 +10,7 @@ namespace ServiceInstaller.Classes
     /// <summary>
     /// A generic window service installer for install or uninstalling.
     /// </summary>
-    public class Serviceinstaller
+    public class ServiceInstaller
     {
         /// <summary>
         /// Location of .NET Framework main folder
@@ -22,8 +22,8 @@ namespace ServiceInstaller.Classes
         /// </summary>
         public string InstallerCommand => Path.Combine(FrameWorkDirectory, "InstallUtil.exe");
 
-        private bool _CommandExeExists;
-        public bool CommandExecutableExists { get { return _CommandExeExists; } }
+        private readonly bool _commandExeExists;
+        public bool CommandExecutableExists { get { return _commandExeExists; } }
         public string ServiceFolder { get; set; }
         /// <summary>
         /// Executable name of the ACED Notification Service { get; set; }
@@ -39,18 +39,23 @@ namespace ServiceInstaller.Classes
         /// </summary>
         public string ServiceName { get; set; }
 
+        public ServiceInstaller()
+        {
+            
+        }
         /// <summary>
         /// Used to install a service
         /// </summary>
         /// <param name="pExecutableName">Service executable name with extension</param>
         /// <param name="pServiceKnownName">Name of the Windows service</param>
         /// <param name="pServiceProjectFolder">Visual Studio project folder</param>
-        public Serviceinstaller(string pExecutableName, string pServiceKnownName, string pServiceProjectFolder)
+        public ServiceInstaller(string pExecutableName, string pServiceKnownName, string pServiceProjectFolder)
         {
+            
             ServiceExecutableName = pExecutableName;
             ServiceName = pServiceKnownName;
 
-            _CommandExeExists = File.Exists(InstallerCommand);
+            _commandExeExists = File.Exists(InstallerCommand);
 
             // assumes building for debug not release
             ServiceFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.UpperFolder(4), pServiceProjectFolder, "bin", "Debug");
@@ -69,6 +74,7 @@ namespace ServiceInstaller.Classes
 
             var ops = new WindowsServices();
             var statusStates = new[] { "Running", "Stopped" };
+            
             if (statusStates.Contains(ops.Status(ServiceName)))
             {
                 startInfo.Arguments = $"/u {Path.Combine(ServiceFolder, ServiceExecutableName)}";
@@ -79,6 +85,7 @@ namespace ServiceInstaller.Classes
                 {
                     MessageBox.Show("Service has been uninstalled");
                 }
+                
             }
         }
         /// <summary>

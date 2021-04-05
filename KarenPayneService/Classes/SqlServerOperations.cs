@@ -5,42 +5,34 @@ using static System.DateTime;
 
 namespace KarenPayneService.Classes
 {
-    public class Operations
+    public class SqlServerOperations
     {
         /// <summary>
         /// NEEDS TO CHANGE ON YOUR PC
         /// Specifies the SQL-Server instance you might need to use SQLExpress or another server name
         /// </summary>
-        private static string databaseServer = "KARENS-PC";
+        private static string databaseServer = ".\\SQLEXPRESS";
         /// <summary>
         /// NOTE: Name of database containing required tables
         /// </summary>
         static string defaultCatalog = "KarensServiceDatabase";
+
+        public string ExceptionMessage { get; private set; }
+
         /// <summary>
         /// Constructs our final connection string
         /// IMPORTANT: You need to change the user Id and Password for your database.
         /// </summary>
-        string _connectionString = $"Data Source={databaseServer};Initial Catalog={defaultCatalog};User Id=KarenPayneDemo;Password=PasswordDemo";
-        private string _exceptionMessage;
-        public string ExceptionMessage { get { return _exceptionMessage; } }
-        string ConnectionString
-        {
-            get
-            {
-                return _connectionString;
-            }
-            set
-            {
-                _connectionString = value;
-            }
-        }
+        private string ConnectionString { get; set; } = $"Data Source={databaseServer};Initial Catalog={defaultCatalog};User Id=KarenPayneDemo;Password=PasswordDemo";
+
         public bool InsertMessage(string pMessage)
         {
-            if (Environment.UserName != "Karens")
-            {
-                throw new OperationCanceledException("SQL-Server insance name needs inspection.");
-            }
+            //if (Environment.UserName != "SYSTEM")
+            //{
+            //    throw new OperationCanceledException("SQL-Server instance name needs inspection.");
+            //}
 
+            var currentUser = Environment.UserName;
             bool success;
             using (var cn = new SqlConnection { ConnectionString = ConnectionString })
             {
@@ -58,7 +50,7 @@ namespace KarenPayneService.Classes
                     catch (Exception ex)
                     {
                         // most likely failure is permissions to connection or write to the database
-                        _exceptionMessage = ex.Message;
+                        ExceptionMessage = ex.Message;
                         success = false;
                     }
                 }

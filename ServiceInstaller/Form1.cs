@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using static ServiceInstaller.Classes.WindowsFormsDialogs;
@@ -6,13 +7,14 @@ using System.Configuration;
 using ServiceInstaller.Classes;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ServiceInstaller
 {
     public partial class MainForm : Form
     {
-        Serviceinstaller servicesOperations;
+        Classes.ServiceInstaller servicesOperations;
         WindowsServices utilityOperations;
 
         public MainForm()
@@ -61,7 +63,7 @@ namespace ServiceInstaller
         void MainForm_Load(object sender, EventArgs e)
         {
 
-            servicesOperations = new Serviceinstaller(
+            servicesOperations = new Classes.ServiceInstaller(
                 ConfigurationManager.AppSettings["ExecutableName"], 
                 ConfigurationManager.AppSettings["ServiceKnownName"],
                 ConfigurationManager.AppSettings["ServiceProjectFolder"]);
@@ -177,6 +179,18 @@ namespace ServiceInstaller
         private void checkBoxTopMost_CheckedChanged(object sender, EventArgs e)
         {
             TopMost = !TopMost;
+        }
+
+        private void MiscButton_Click(object sender, EventArgs e)
+        {
+            var ops = new Classes.ServiceInstaller();
+            var installerCommand = ops.InstallerCommand;
+            var userDomain = Environment.UserDomainName;
+
+            var information = new List<string>();
+            information.Add(installerCommand);
+            information.Add(userDomain);
+            File.WriteAllLines("dump.txt",information.ToArray());
         }
     }
 }

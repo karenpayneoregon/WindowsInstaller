@@ -16,9 +16,9 @@ namespace KarenPayneService.Classes
         {
             InitializeComponent();
         }
-        void ActionsInitiaization()
+        void ActionsInitialization()
         {
-            EventLog.WriteEntry("Hello from ActionsInitiaization()");
+            EventLog.WriteEntry("Hello from ActionsInitialization()");
         }
         protected override void OnStart(string[] args)
         {
@@ -38,7 +38,7 @@ namespace KarenPayneService.Classes
 
             try
             {
-                ActionsInitiaization();
+                ActionsInitialization();
 
                 if (string.IsNullOrWhiteSpace(programStartupMode))
                 {
@@ -53,12 +53,13 @@ namespace KarenPayneService.Classes
                 }
 
                 EventLog.WriteEntry("Setting timer!!!");
+                
                 _serviceTimer.Change(_executeTime, Timeout.Infinite);
+                
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry($"Karen Payne Service Error on: {0} " + 
-                    ex.Message + ex.StackTrace, EventLogEntryType.Error);
+                EventLog.WriteEntry($"Karen Payne Service Error on: {ex.Message + ex.StackTrace} " , EventLogEntryType.Error);
 
                 using (var serviceController = new ServiceController("DatabaseService"))
                 {
@@ -73,12 +74,31 @@ namespace KarenPayneService.Classes
         }
         void Dispatcher(object e)
         {
-            var ops = new Operations();
-            if (!ops.InsertMessage("Written in demo service"))
+            /*
+             * Read an existing file
+             *
+             * If successful `exception` will be null and the file contents will be in `linesList`
+             * while on failure `exception` will not be null
+             *
+             * NOTE: The return type is a 'named value tuple
+             */
+            var (exception, linesList) = IO.File.ReadNameFile();
+            
+            if (exception == null)
             {
-                string errorMessage = ops.ExceptionMessage;
-                EventLog.WriteEntry($"Karen Payne Service Error inserting record: {errorMessage}", EventLogEntryType.Error);
+                Console.WriteLine();
             }
+            else
+            {
+                Console.WriteLine();
+            }
+            
+            //var ops = new SqlServerOperations();
+            //if (!ops.InsertMessage("Written in demo service"))
+            //{
+            //    string errorMessage = ops.ExceptionMessage;
+            //    EventLog.WriteEntry($"Karen Payne Service Error inserting record: {errorMessage}", EventLogEntryType.Error);
+            //}
 
             _serviceTimer.Dispose();
 

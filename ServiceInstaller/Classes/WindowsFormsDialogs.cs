@@ -5,10 +5,8 @@ namespace ServiceInstaller.Classes
 {
     public static class WindowsFormsDialogs
     {
-        public static bool Question(string pText)
-        {
-            return (MessageBox.Show(pText, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes);
-        }
+        public static bool Question(string pText) => (MessageBox.Show(pText, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes);
+
         /// <summary>
         /// Display error message with appropriate icon
         /// </summary>

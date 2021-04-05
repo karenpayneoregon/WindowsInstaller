@@ -40,6 +40,7 @@
             this.applicationCloseButton = new System.Windows.Forms.Button();
             this.checkBoxTopMost = new System.Windows.Forms.CheckBox();
             this.chkStart = new System.Windows.Forms.CheckBox();
+            this.MiscButton = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +139,8 @@
             // chkStart
             // 
             this.chkStart.AutoSize = true;
+            this.chkStart.Checked = true;
+            this.chkStart.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkStart.Location = new System.Drawing.Point(129, 42);
             this.chkStart.Name = "chkStart";
             this.chkStart.Size = new System.Drawing.Size(99, 17);
@@ -145,11 +148,22 @@
             this.chkStart.Text = "Start with install";
             this.chkStart.UseVisualStyleBackColor = true;
             // 
+            // MiscButton
+            // 
+            this.MiscButton.Location = new System.Drawing.Point(20, 220);
+            this.MiscButton.Name = "MiscButton";
+            this.MiscButton.Size = new System.Drawing.Size(75, 23);
+            this.MiscButton.TabIndex = 8;
+            this.MiscButton.Text = "Misc";
+            this.MiscButton.UseVisualStyleBackColor = true;
+            this.MiscButton.Click += new System.EventHandler(this.MiscButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 268);
+            this.Controls.Add(this.MiscButton);
             this.Controls.Add(this.chkStart);
             this.Controls.Add(this.checkBoxTopMost);
             this.Controls.Add(this.applicationCloseButton);
@@ -185,6 +199,7 @@
         private System.Windows.Forms.Button applicationCloseButton;
         private System.Windows.Forms.CheckBox checkBoxTopMost;
         private System.Windows.Forms.CheckBox chkStart;
+        private System.Windows.Forms.Button MiscButton;
     }
 }
 

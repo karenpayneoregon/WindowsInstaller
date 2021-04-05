@@ -19,11 +19,12 @@ namespace ServiceInstaller.Classes
         /// </remarks>
         public void StopService(string pServiceName)
         {
-            var sc = ServiceController.GetServices()
-                .FirstOrDefault(service => service.ServiceName == pServiceName);
+            var sc = ServiceController.GetServices().FirstOrDefault(serviceController => serviceController.ServiceName == pServiceName);
 
             if (sc == null)
+            {
                 return;
+            }
 
             if (sc.Status == ServiceControllerStatus.Running)
             {
@@ -44,13 +45,15 @@ namespace ServiceInstaller.Classes
         /// <param name="pServiceName"></param>
         public void StartService(string pServiceName)
         {
-            var sc = ServiceController.GetServices()
-                .FirstOrDefault(service => service.ServiceName == pServiceName);
+            var sc = ServiceController.GetServices().FirstOrDefault(serviceController => serviceController.ServiceName == pServiceName);
 
             if (sc == null)
+            {
                 return;
+            }
 
             sc.ServiceName = pServiceName;
+            
             if (sc.Status == ServiceControllerStatus.Stopped)
             {
                 try
@@ -71,8 +74,7 @@ namespace ServiceInstaller.Classes
         /// <returns></returns>
         public bool IsInstalled(string pServiceName)
         {
-            var sc = ServiceController.GetServices()
-                .FirstOrDefault(service => service.ServiceName == pServiceName);
+            var sc = ServiceController.GetServices().FirstOrDefault(service => service.ServiceName == pServiceName);
 
             return (sc != null);
         }
@@ -84,16 +86,15 @@ namespace ServiceInstaller.Classes
         {
             var detailList = new List<ServiceDetails>();
 
-            var services = ServiceController.GetServices()
-                .OrderBy(x => x.DisplayName).ToList();
+            var services = ServiceController.GetServices().OrderBy(serviceController => serviceController.DisplayName).ToList();
 
-            foreach (var item in services)
+            foreach (var serviceController in services)
             {
                 detailList.Add(new ServiceDetails()
                 {
-                    DisplayName = item.DisplayName,
-                    ServiceName = item.ServiceName,
-                    Status = item.Status
+                    DisplayName = serviceController.DisplayName,
+                    ServiceName = serviceController.ServiceName,
+                    Status = serviceController.Status
                 });               
             }
 
@@ -106,7 +107,7 @@ namespace ServiceInstaller.Classes
         /// <returns></returns>
         /// <remarks>
         /// Example usage, set the text of a text box
-        /// in a form statusbar.
+        /// in a form status-bar.
         /// </remarks>
         public string Status(string pServiceName) 
         {
@@ -114,10 +115,12 @@ namespace ServiceInstaller.Classes
 
             // Get our service, if not found in GetServices then it's not installed
             var sc = ServiceController.GetServices()
-                .FirstOrDefault(service => service.ServiceName == pServiceName);
+                .FirstOrDefault(serviceController => serviceController.ServiceName == pServiceName);
 
             if (sc == null)
+            {
                 return status;
+            }
 
             switch (sc.Status)
             {
@@ -140,6 +143,7 @@ namespace ServiceInstaller.Classes
                     status = "Status Changing";
                     break;
             }
+            
             return status;
         }
     }
