@@ -82,8 +82,8 @@ namespace KarenPayneService
         //{
         //    base.OnBeforeInstall(savedState);
 
-        //    string username = "OED/paynek";// GetContextParameter("user").Trim();
-        //    string password = ""; // GetContextParameter("password").Trim();
+        //    string username = GetContextParameter("user").Trim();
+        //    string password = GetContextParameter("password").Trim();
 
         //    if (username != "")
         //    {
