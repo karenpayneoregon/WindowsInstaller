@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 
 namespace KarenPayneService
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [RunInstaller(true)]
     public partial class ProjectInstaller : Installer
     {
         private ServiceInstaller serviceInstaller;
         private ServiceProcessInstaller serviceProcessInstaller;
         
+        /// <summary>
+        /// 
+        /// </summary>
         public ProjectInstaller()
         {
             InitializeComponent();
@@ -50,6 +56,11 @@ namespace KarenPayneService
             //    service.Start();
             //}
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public string GetContextParameter(string key)
         {
             string value = "";

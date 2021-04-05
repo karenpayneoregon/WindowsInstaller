@@ -5,6 +5,9 @@ using static System.DateTime;
 
 namespace KarenPayneService.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SqlServerOperations
     {
         /// <summary>
@@ -17,6 +20,9 @@ namespace KarenPayneService.Classes
         /// </summary>
         static string defaultCatalog = "KarensServiceDatabase";
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string ExceptionMessage { get; private set; }
 
         /// <summary>
@@ -25,6 +31,11 @@ namespace KarenPayneService.Classes
         /// </summary>
         private string ConnectionString { get; set; } = $"Data Source={databaseServer};Initial Catalog={defaultCatalog};User Id=KarenPayneDemo;Password=PasswordDemo";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pMessage"></param>
+        /// <returns></returns>
         public bool InsertMessage(string pMessage)
         {
             //if (Environment.UserName != "SYSTEM")

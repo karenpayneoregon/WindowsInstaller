@@ -27,6 +27,10 @@ namespace KarenPayneService.Classes
         {
             EventLog.WriteEntry("Hello from ActionsInitialization()");
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         protected override void OnStart(string[] args)
         {
 
@@ -38,6 +42,9 @@ namespace KarenPayneService.Classes
             ScheduleService();
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public void ScheduleService()
         {
             var programStartupMode = "";
@@ -75,6 +82,9 @@ namespace KarenPayneService.Classes
             }
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
         protected override void OnStop()
         {
             _serviceTimer.Dispose();

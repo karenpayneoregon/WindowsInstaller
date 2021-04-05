@@ -3,6 +3,9 @@ using System.Configuration;
 
 namespace KarenPayneService
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SetupSchedule
     {
         /// <summary>

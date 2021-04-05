@@ -91,6 +91,7 @@ namespace KarenPayneService.Classes.OracleOperations
                     catch (Exception exception)
                     {
                         newIdentifier = -1;
+                        
                         return exception;
                     }
                 }
