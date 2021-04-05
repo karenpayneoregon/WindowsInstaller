@@ -25,6 +25,11 @@ namespace KarenPayneService
         {
             InitializeComponent();
             
+            /*
+             * The following is an alternate method
+             * for setting service properties
+             */
+            
             //serviceInstaller = new ServiceInstaller
             //{
             //    StartType = ServiceStartMode.Automatic, 
@@ -43,11 +48,7 @@ namespace KarenPayneService
             //BeforeInstall += OnBeforeInstall;
         }
 
-        private void OnBeforeInstall(object sender, InstallEventArgs e)
-        {
-            
-        }
- 
+
         private void ProjectInstaller_AfterInstall(object sender, InstallEventArgs e)
         {
             //var service = new ServiceController(serviceInstaller1.ServiceName);
