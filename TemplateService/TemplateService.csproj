@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Classes\IO\File.cs" />
     <Compile Include="Classes\Containers\CbrAddress.cs" />
-    <Compile Include="Classes\OracleOperations\Operations.cs" />
+    <Compile Include="Classes\Oracle\Operations.cs" />
     <Compile Include="Classes\SetupSchedule.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>

@@ -3,41 +3,11 @@ using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using TemplateService.Classes.Containers;
 
-namespace TemplateService.Classes.OracleOperations
+namespace TemplateService.Classes.Oracle
 {
-    
+  
     /// <summary>
-    /// mocked up for calling Operations.InsertRecord.
-    /// </summary>
-    public class InsertRecordExample
-    {
-        /// <summary>
-        /// Demo on a call to insert new record
-        /// </summary>
-        public InsertRecordExample()
-        {
-            var address = new CbrAddress() {PostalCode = "eeeee"};
-            
-            int newIdentifier = -1;
-            
-            /*
-             * See comment in the `else` statement below
-             */
-            var exception = Operations.InsertRecord(address,ref newIdentifier);
-            
-            if (newIdentifier > -1)
-            {
-                // record inserted
-            }
-            else
-            {
-                // record failed to insert, inspect exception var returned from `Operations.InsertRecord`
-                
-            }
-        }
-    }
-    /// <summary>
-    /// 
+    /// Use this class for data operations to Oracle
     /// </summary>
     public class Operations
     {
@@ -69,7 +39,7 @@ namespace TemplateService.Classes.OracleOperations
                         var result = cmd.ExecuteNonQuery();
                         if (result == -1)
                         {
-                            // insert failed
+                            // insert failed - more information may be added here.
                             return new Exception("Insert failed without raising a runtime exception");
                         }
                         else
