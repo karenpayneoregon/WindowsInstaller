@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
-using StudentLibrary.Containers;
+using EmployeeLibrary.Containers;
 
-namespace StudentLibrary
+namespace EmployeeLibrary
 {
     /// <summary>
     /// Various employee operations

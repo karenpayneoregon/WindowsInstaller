@@ -1,4 +1,4 @@
-﻿namespace StudentLibrary.Containers
+﻿namespace EmployeeLibrary.Containers
 {
     public class Employee 
     {

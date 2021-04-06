@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTestingProject", "DataT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mockup classes", "Mockup classes", "{CCC19FC8-A0C6-47A9-AA25-44FE32E78894}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentLibrary", "StudentLibrary\StudentLibrary.csproj", "{4785A4A3-6C76-4314-9A2F-1CB151F55D3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeLibrary", "StudentLibrary\EmployeeLibrary.csproj", "{4785A4A3-6C76-4314-9A2F-1CB151F55D3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Files\Employees.xml">
@@ -68,9 +69,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StudentLibrary\StudentLibrary.csproj">
+    <ProjectReference Include="..\StudentLibrary\EmployeeLibrary.csproj">
       <Project>{4785a4a3-6c76-4314-9a2f-1cb151f55d3d}</Project>
-      <Name>StudentLibrary</Name>
+      <Name>EmployeeLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

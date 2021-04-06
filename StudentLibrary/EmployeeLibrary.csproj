@@ -7,8 +7,8 @@
     <ProjectGuid>{4785A4A3-6C76-4314-9A2F-1CB151F55D3D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudentLibrary</RootNamespace>
-    <AssemblyName>StudentLibrary</AssemblyName>
+    <RootNamespace>EmployeeLibrary</RootNamespace>
+    <AssemblyName>EmployeeLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

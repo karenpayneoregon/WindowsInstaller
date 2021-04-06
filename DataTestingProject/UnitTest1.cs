@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using DataTestingProject.Base;
+using EmployeeLibrary;
 using KellermanSoftware.CompareNetObjects;
-using StudentLibrary;
 
 namespace DataTestingProject
 {
