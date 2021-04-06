@@ -9,7 +9,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using KarenPayneService;
+using TemplateService.Classes;
 
 namespace TemplateService
 {

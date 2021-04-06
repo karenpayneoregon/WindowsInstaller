@@ -6,19 +6,18 @@ namespace DataTestingProject.Base
 {
     public enum Trait
     {
-        SqlClientRead,
-        SqlClientUpdate
+        ReadStudentsXml
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.
     /// </summary>
     public class TestTraitsAttribute : TestCategoryBaseAttribute
     {
-        private Trait[] traits;
+        private readonly Trait[] _traits;
 
         public TestTraitsAttribute(params Trait[] traits)
         {
-            this.traits = traits;
+            this._traits = traits;
         }
 
         public override IList<string> TestCategories
@@ -27,7 +26,7 @@ namespace DataTestingProject.Base
             {
                 var traitStrings = new List<string>();
 
-                foreach (var trait in traits)
+                foreach (var trait in _traits)
                 {
                     string value = Enum.GetName(typeof(Trait), trait);
                     traitStrings.Add(value);
