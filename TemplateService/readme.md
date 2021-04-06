@@ -6,6 +6,10 @@ This project is a raw/base starting point to write a windows service.
 
 :bulb: Questions, ask Karen
 
+:heavy_check_mark: Oracle ready
+
+
+
 
 # See also
 
