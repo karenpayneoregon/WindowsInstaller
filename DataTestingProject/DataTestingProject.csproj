@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="Base\TestBase.cs" />
     <Compile Include="Base\TestTraitsAttribute.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="XmlTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,12 +5,16 @@ using System.Linq;
 using System.Xml;
 using DataTestingProject.Base;
 using EmployeeLibrary;
+
+/*
+ * NuGet package, see readme.md
+ */
 using KellermanSoftware.CompareNetObjects;
 
 namespace DataTestingProject
 {
     [TestClass]
-    public class UnitTest1 : TestBase
+    public class XmlTest : TestBase
     {
         /// <summary>
         /// Test reading a simple xml file into a list
@@ -19,8 +23,13 @@ namespace DataTestingProject
         [TestTraits(Trait.ReadStudentsXml)]
         public void ReadEmployees()
         {
-            var employees = EmployeeOperations.ParseXml(EmployeesXmlFile);
+            // arrange
             var compareLogic = new CompareLogic();
+            
+            // act
+            var employees = EmployeeOperations.ParseXml(EmployeesXmlFile);
+            
+            // assert
             ComparisonResult result = compareLogic.Compare(employees, EmployeesExpected);
             Assert.IsTrue(result.AreEqual);
 
