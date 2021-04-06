@@ -40,7 +40,7 @@ Currently in app.config these setting are to run `KarenPayneService`.
 </appSettings>
 ```
 
-<kbd>👉</kbd>To run another project, the project must be at the root level of this solution.
+:yellow_circle: To run another project, the project must be at the root level of this solution.
 
 - Change `ExecutableName` to the name of the executable for the service
 - Change `ServiceKnownName` to the service name
