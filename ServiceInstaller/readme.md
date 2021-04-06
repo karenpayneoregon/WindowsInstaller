@@ -27,3 +27,21 @@ Note that the other buttons are not needed presently.
 Both informational and runtime errors are writen to the Windows Event logs. Below shows a sample of a informational entry.
 
 ![img](assets/events.png)
+
+# Setting up for a service
+
+Currently in app.config these setting are to run `KarenPayneService`.
+
+```xml
+<appSettings>
+   <add key="ExecutableName" value="KarenPayneService.exe" />
+   <add key="ServiceKnownName" value="DatabaseService" />
+   <add key="ServiceProjectFolder" value="KarenPayneService" />
+</appSettings>
+```
+
+<kbd>👉</kbd><br>To run another project, the project must be at the root level of this solution.
+
+- Change `ExecutableName` to the name of the executable for the service
+- Change `ServiceKnownName` to the service name
+- Change `ServiceProjectFolder` to the project folder name.
