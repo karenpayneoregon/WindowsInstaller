@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2041
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInstaller", "ServiceInstaller\ServiceInstaller.csproj", "{CE460AC5-9E04-4193-8E82-C363E1EB74C5}"
 EndProject
@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service template", "Service template", "{5B4A9AB0-E0DC-4A05-A3AE-705A01CD82BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateService", "TemplateService\TemplateService.csproj", "{B0EBB2C8-DD99-467A-8AF0-5307556A9AB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +30,16 @@ Global
 		{5B9B04FA-1484-4439-B693-9963BB24ACD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B9B04FA-1484-4439-B693-9963BB24ACD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B9B04FA-1484-4439-B693-9963BB24ACD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0EBB2C8-DD99-467A-8AF0-5307556A9AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0EBB2C8-DD99-467A-8AF0-5307556A9AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0EBB2C8-DD99-467A-8AF0-5307556A9AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0EBB2C8-DD99-467A-8AF0-5307556A9AB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0EBB2C8-DD99-467A-8AF0-5307556A9AB5} = {5B4A9AB0-E0DC-4A05-A3AE-705A01CD82BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92EB0E37-4D92-48FF-9B00-F356E69AE9E9}
