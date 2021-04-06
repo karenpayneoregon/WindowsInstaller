@@ -7,7 +7,8 @@ namespace TemplateService.Classes.Oracle
 {
   
     /// <summary>
-    /// Use this class for data operations to Oracle
+    /// Use this class for data operations to Oracle. Although the code compiles the developer
+    /// needs to write their own query and test.
     /// </summary>
     public class Operations
     {
@@ -67,11 +68,12 @@ namespace TemplateService.Classes.Oracle
         }
 
         /// <summary>
-        /// Insert statement 
+        /// Sample INSERT statement
         /// </summary>
         /// <returns>Insert statement</returns>
         /// <remarks>
         /// You need to change OCS.OCSMSG_SEQ.nextval to the name of the sequence for CBR_ADDRESSES
+        /// Note parameter marker :
         /// </remarks>
         private static string InsertStatement()
         {

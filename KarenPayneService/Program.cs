@@ -15,6 +15,8 @@ namespace KarenPayneService
         /// </summary>
         static void Main()
         {
+            // ReSharper disable once InconsistentNaming
+            // ReSharper disable once JoinDeclarationAndInitializer
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {

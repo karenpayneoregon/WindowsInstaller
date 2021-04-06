@@ -30,7 +30,6 @@ namespace KarenPayneService.Classes.IO
             catch (Exception e)
             {
                 return (e,null);
-
             }
 
             return (null, null);
