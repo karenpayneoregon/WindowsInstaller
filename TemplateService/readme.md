@@ -4,6 +4,8 @@
 
 This project is a raw/base starting point to write a windows service.
 
+:bulb: Questions, ask Karen
+
 
 # See also
 
