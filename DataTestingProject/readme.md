@@ -9,5 +9,6 @@ Sample unit test project
 # Requires
 
 - **NuGet package** [CompareNETObjects](https://www.nuget.org/packages/CompareNETObjects) for deep compares on objects and list of objects.
+  - [Project site](https://github.com/GregFinzer/Compare-Net-Objects)
 - .NET Framework 4.8
 
