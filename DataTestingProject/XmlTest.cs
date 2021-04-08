@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using CommonLibrary.Containers;
+using CommonLibrary.Generic.Helpers;
 using DataTestingProject.Base;
 using EmployeeLibrary;
 
@@ -16,6 +18,7 @@ namespace DataTestingProject
     [TestClass]
     public class XmlTest : TestBase
     {
+
         /// <summary>
         /// Test reading a simple xml file into a list
         /// </summary>
@@ -25,10 +28,10 @@ namespace DataTestingProject
         {
             // arrange
             var compareLogic = new CompareLogic();
-            
+
             // act
             var employees = EmployeeOperations.ParseXml(EmployeesXmlFile);
-            
+
             // assert
             ComparisonResult result = compareLogic.Compare(employees, EmployeesExpected);
             Assert.IsTrue(result.AreEqual);
@@ -40,7 +43,7 @@ namespace DataTestingProject
         {
             TestResults = new List<TestContext>();
         }
-        
+
         [TestInitialize]
         public void Init()
         {

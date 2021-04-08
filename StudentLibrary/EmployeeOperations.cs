@@ -12,6 +12,11 @@ namespace EmployeeLibrary
     /// </summary>
     public class EmployeeOperations
     {
+        /// <summary>
+        /// Simple read xml into a list of Employee
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static List<Employee> ParseXml(string fileName)
         {
             var xmlDoc = File.ReadAllText(fileName);

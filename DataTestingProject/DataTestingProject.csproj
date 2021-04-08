@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Base\TestBase.cs" />
     <Compile Include="Base\TestTraitsAttribute.cs" />
+    <Compile Include="GenericHelpersTest.cs" />
     <Compile Include="XmlTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +70,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{41baa940-a22a-4a77-ad68-122da5119dc8}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StudentLibrary\EmployeeLibrary.csproj">
       <Project>{4785a4a3-6c76-4314-9a2f-1cb151f55d3d}</Project>
       <Name>EmployeeLibrary</Name>

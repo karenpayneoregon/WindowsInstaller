@@ -6,7 +6,8 @@ namespace DataTestingProject.Base
 {
     public enum Trait
     {
-        ReadStudentsXml
+        ReadStudentsXml,
+        LimitList
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

@@ -2,7 +2,9 @@
 
 Sample unit test project
 
-> TODO - documentation
+:heavy_check_mark: Separate test by type in a test class file
+
+:heavy_check_mark: Use a test base for preparation to keep test methods clean
 
 ![image](../assets/unitTesting.png)
 

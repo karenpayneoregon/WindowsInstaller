@@ -24,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mockup classes", "Mockup cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeLibrary", "StudentLibrary\EmployeeLibrary.csproj", "{4785A4A3-6C76-4314-9A2F-1CB151F55D3D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{55433A4F-787C-4E2F-80F2-EAC3E0496971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "CommonLibrary\CommonLibrary.csproj", "{41BAA940-A22A-4A77-AD68-122DA5119DC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +54,10 @@ Global
 		{4785A4A3-6C76-4314-9A2F-1CB151F55D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4785A4A3-6C76-4314-9A2F-1CB151F55D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4785A4A3-6C76-4314-9A2F-1CB151F55D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41BAA940-A22A-4A77-AD68-122DA5119DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41BAA940-A22A-4A77-AD68-122DA5119DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41BAA940-A22A-4A77-AD68-122DA5119DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41BAA940-A22A-4A77-AD68-122DA5119DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{1F898472-0228-4441-8B01-D8778A55300B} = {20C0FB1C-3EAB-4205-8ACA-56FC1385BE7B}
 		{CCC19FC8-A0C6-47A9-AA25-44FE32E78894} = {20C0FB1C-3EAB-4205-8ACA-56FC1385BE7B}
 		{4785A4A3-6C76-4314-9A2F-1CB151F55D3D} = {CCC19FC8-A0C6-47A9-AA25-44FE32E78894}
+		{41BAA940-A22A-4A77-AD68-122DA5119DC8} = {55433A4F-787C-4E2F-80F2-EAC3E0496971}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92EB0E37-4D92-48FF-9B00-F356E69AE9E9}
