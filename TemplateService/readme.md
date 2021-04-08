@@ -15,7 +15,7 @@ Follow the flow below from the service class
 - `_serviceTimer` object drives when the operations intended to run get triggers
 - `ScheduleService` is responsible for running business logic
 - Use `EventLog.WriteEntry(`text for system event log`)` to log actions as informational
-- Use `EventLog.WriteEntry(`text for system event log`,, EventLogEntryType.Error)` to log actions as an error
+- Use `EventLog.WriteEntry(`text for system event log`, EventLogEntryType.Error)` to log actions as an error
 
 
 # Flow
