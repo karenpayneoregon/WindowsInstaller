@@ -19,7 +19,7 @@ namespace KarenPayneService.Classes.OracleOperations
         /// </summary>
         public InsertRecordExample()
         {
-            CbrAddress address = new CbrAddress() {PostalCode = "eeeee"};
+            CbrAddress address = new CbrAddress() {PostalCode = "TODO"};
             
             int newIdentifier = -1;
             
