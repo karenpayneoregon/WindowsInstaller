@@ -8,6 +8,10 @@ This project is a raw/base starting point to write a windows service.
 
 :heavy_check_mark: Oracle ready
 
+# Flow
+
+![image](../assets/ServiceFlow.png)
+
 
 
 

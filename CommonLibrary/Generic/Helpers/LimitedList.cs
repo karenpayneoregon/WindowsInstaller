@@ -5,14 +5,18 @@ using System.Runtime.InteropServices;
 
 namespace CommonLibrary.Generic.Helpers
 {
+    /// <summary>
+    /// Provides functionality to limit T to a specific size
+    /// </summary>
+    /// <typeparam name="T">Type</typeparam>
     [Serializable]
     public class LimitedList<T> : IEnumerable<T>
     {
         private T[] _thing;
-        public LimitedList(int maxsize)
+        public LimitedList(int maxSize)
         {
-            _thing = new T[maxsize];
-            MaxSize = maxsize;
+            _thing = new T[maxSize];
+            MaxSize = maxSize;
         }
         private int MaxSize { get; }
         public int Count { get; private set; }
@@ -21,7 +25,10 @@ namespace CommonLibrary.Generic.Helpers
             get
             {
                 if (index > _thing.Length - 1)
+                {
                     throw new Exception($"Index {index} is out of range {_thing.Length - 1}");
+                }
+
                 return _thing[index];
             }
             set
@@ -33,10 +40,14 @@ namespace CommonLibrary.Generic.Helpers
 
                 if (index < MaxSize)
                 {
+                    
                     _thing[index] = value;
                     Count++;
+                    
                     if (Count > MaxSize)
+                    {
                         Count = MaxSize;
+                    }
                 }
             }
         }
@@ -72,7 +83,9 @@ namespace CommonLibrary.Generic.Helpers
         {
             var size = MaxSize;
             var equalityComparer = EqualityComparer<T>.Default;
+            
             while (size-- > 0)
+            {
                 if (item == null)
                 {
                     if (_thing[size] == null)
@@ -82,12 +95,16 @@ namespace CommonLibrary.Generic.Helpers
                 {
                     return true;
                 }
+            }
+
             return false;
         }
         public T[] ToArray()
         {
+            
             var objArray = new T[MaxSize];
             Array.Copy(_thing, 0, objArray, 0, MaxSize);
+            
             return objArray;
         }
         public List<T> ToList() => new List<T>(_thing);
@@ -98,6 +115,7 @@ namespace CommonLibrary.Generic.Helpers
         {
             Array.Copy(_thing, 0, array, 0, MaxSize);
         }
+        
         [Serializable]
         [StructLayout(LayoutKind.Sequential)]
         public struct Enumerator<T> : IEnumerator<T>
@@ -110,9 +128,11 @@ namespace CommonLibrary.Generic.Helpers
                 index = 0;
                 Current = default;
             }
+            
             public void Dispose()
             {
             }
+            
             public bool MoveNext()
             {
                 var tthing = thing;
@@ -126,13 +146,16 @@ namespace CommonLibrary.Generic.Helpers
                 Current = default;
                 return false;
             }
+            
             public T Current { get; private set; }
             object IEnumerator.Current => Current;
+            
             void IEnumerator.Reset()
             {
                 index = 0;
                 Current = default;
             }
+            
         }
     }
 }
