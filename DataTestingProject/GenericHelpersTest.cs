@@ -10,6 +10,9 @@ namespace DataTestingProject
     [TestClass]
     public class GenericHelpersTest : TestBase
     {
+        /// <summary>
+        /// Test limit list to a specific Capacity
+        /// </summary>
         [TestMethod]
         [TestTraits(Trait.LimitList)]
         public void LimitListToSize()
@@ -30,6 +33,9 @@ namespace DataTestingProject
 
         }
 
+        /// <summary>
+        /// Limit list generically to a specific size.
+        /// </summary>
         [TestMethod]
         [TestTraits(Trait.LimitList)]
         public void LimitedPeople()
