@@ -7,3 +7,8 @@ Also demonstrates using a simple Windows Service starting a debug session.
 
 <img alt="logo" src="assets/F1.png">
 
+---
+
+How to debug
+https://learn.microsoft.com/en-us/archive/technet-wiki/53573.visual-studio-debugging-windows-services
+

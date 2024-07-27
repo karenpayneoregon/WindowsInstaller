@@ -5,6 +5,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using KarenPayneService.Classes;
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace KarenPayneService
 {
